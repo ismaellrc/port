@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de itens para Churrasco</title>
+    <style>
+        body {
+            font-family: calibri, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 22px;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            color: #black; /* cor do texto */
+            border: 1px solid #black; /* borda */
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: transparent; /* fundo transparente */
+        }
+
+
+        #resultado {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Churrasco</h1>
+        <div class="input-group">
+            <label for="homens">Homens:</label>
+            <input type="number" id="homens" min="0" value="0">
+        </div>
+        <div class="input-group">
+            <label for="mulheres">Mulheres:</label>
+            <input type="number" id="mulheres" min="0" value="0">
+        </div>
+        <div class="input-group">
+            <label for="criancas">Crianças:</label>
+            <input type="number" id="criancas" min="0" value="0">
+        </div>
+        <button id="calcular">Calcular</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        document.getElementById('calcular').addEventListener('click', function() {
+            var homens = parseInt(document.getElementById('homens').value);
+            var mulheres = parseInt(document.getElementById('mulheres').value);
+            var criancas = parseInt(document.getElementById('criancas').value);
+
+            var carneBovina = homens * 500 + mulheres * 300 + criancas * 200;
+            var frango = homens * 200 + mulheres * 200 + criancas * 100;
+            var linguica = homens * 200 + mulheres * 200 + criancas * 200;
+            var refrigerante = homens * 300 + mulheres * 400 + criancas * 200;
+            var cerveja = homens * 800 + mulheres * 500;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>Quantidade necessária para o churrasco:</p>
+                <ul>
+                    <li>Carne bovina: ${carneBovina / 1000} kg</li>
+                    <li>Frango: ${frango / 1000} kg</li>
+                    <li>Linguiça: ${linguica / 1000} kg</li>
+                    <li>Refrigerante: ${refrigerante / 1000} litros</li>
+                    <li>Cerveja: ${cerveja / 1000} litros</li>
+                </ul>
+            `;
+        });
+    </script>
+</body>
+</html>
